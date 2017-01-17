@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <soap:Body>
+        <ExRatesDailyResponse xmlns="http://www.nbrb.by/">
+            <ExRatesDailyResult>
+                <xs:schema id="NewDataSet" xmlns=""
+                    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                    xmlns:msdata="urn:schemas-microsoft-com:xml-msdata"
+                    xmlns:msprop="urn:schemas-microsoft-com:xml-msprop">
+                    <xs:element name="NewDataSet"
+                        msdata:IsDataSet="true" msdata:UseCurrentLocale="true"
+                        msprop:onDate="04/18/2016 00:00:00">
+                        <xs:complexType>
+                            <xs:choice minOccurs="0"
+                                maxOccurs="unbounded">
+                                <xs:element name="DailyExRatesOnDate">
+                                    <xs:complexType>
+                                        <xs:sequence>
+                                            <xs:element name="Cur_QuotName"
+                                                type="xs:string"
+                                                minOccurs="0" />
+                                            <xs:element name="Cur_Scale"
+                                                type="xs:int" minOccurs="0" />
+                                            <xs:element
+                                                name="Cur_OfficialRate"
+                                                type="xs:decimal"
+                                                minOccurs="0" />
+                                            <xs:element name="Cur_Code"
+                                                type="xs:string"
+                                                minOccurs="0" />
+                                            <xs:element
+                                                name="Cur_Abbreviation"
+                                                type="xs:string"
+                                                minOccurs="0" />
+                                        </xs:sequence>
+                                    </xs:complexType>
+                                </xs:element>
+                            </xs:choice>
+                        </xs:complexType>
+                    </xs:element>
+                </xs:schema>
+                <diffgr:diffgram xmlns:msdata="urn:schemas-microsoft-com:xml-msdata"
+                    xmlns:diffgr="urn:schemas-microsoft-com:xml-diffgram-v1">
+                    <NewDataSet xmlns="">
+                        <DailyExRatesOnDate
+                            diffgr:id="DailyExRatesOnDate1"
+                            msdata:rowOrder="0">
+                            <Cur_QuotName>1 австралийский доллар
+                            </Cur_QuotName>
+                            <Cur_Scale>1</Cur_Scale>
+                            <Cur_OfficialRate>15368.20
+                            </Cur_OfficialRate>
+                            <Cur_Code>036</Cur_Code>
+                            <Cur_Abbreviation>AUD</Cur_Abbreviation>
+                        </DailyExRatesOnDate>
+                        <DailyExRatesOnDate
+                            diffgr:id="DailyExRatesOnDate2"
+                            msdata:rowOrder="1">
+                            <Cur_QuotName>1 болгарский лев
+                            </Cur_QuotName>
+                            <Cur_Scale>1</Cur_Scale>
+                            <Cur_OfficialRate>11462.87
+                            </Cur_OfficialRate>
+                            <Cur_Code>975</Cur_Code>
+                            <Cur_Abbreviation>BGN</Cur_Abbreviation>
+                        </DailyExRatesOnDate>
+                        <DailyExRatesOnDate
+                            diffgr:id="DailyExRatesOnDate3"
+                            msdata:rowOrder="2">
+                            <Cur_QuotName>1 гривна</Cur_QuotName>
+                            <Cur_Scale>1</Cur_Scale>
+                            <Cur_OfficialRate>782.97</Cur_OfficialRate>
+                            <Cur_Code>980</Cur_Code>
+                            <Cur_Abbreviation>UAH</Cur_Abbreviation>
+                        </DailyExRatesOnDate>
+                        <DailyExRatesOnDate
+                            diffgr:id="DailyExRatesOnDate4"
+                            msdata:rowOrder="3">
+                            <Cur_QuotName>1 датская крона</Cur_QuotName>
+                            <Cur_Scale>1</Cur_Scale>
+                            <Cur_OfficialRate>3012.95</Cur_OfficialRate>
+                            <Cur_Code>208</Cur_Code>
+                            <Cur_Abbreviation>DKK</Cur_Abbreviation>
+                        </DailyExRatesOnDate>
+                        <DailyExRatesOnDate
+                            diffgr:id="DailyExRatesOnDate5"
+                            msdata:rowOrder="4">
+                            <Cur_QuotName>1 доллар США</Cur_QuotName>
+                            <Cur_Scale>1</Cur_Scale>
+                            <Cur_OfficialRate>19907.00
+                            </Cur_OfficialRate>
+                            <Cur_Code>840</Cur_Code>
+                            <Cur_Abbreviation>USD</Cur_Abbreviation>
+                        </DailyExRatesOnDate>
+                        <DailyExRatesOnDate
+                            diffgr:id="DailyExRatesOnDate6"
+                            msdata:rowOrder="5">
+                            <Cur_QuotName>1 евро</Cur_QuotName>
+                            <Cur_Scale>1</Cur_Scale>
+                            <Cur_OfficialRate>22416.00
+                            </Cur_OfficialRate>
+                            <Cur_Code>978</Cur_Code>
+                            <Cur_Abbreviation>EUR</Cur_Abbreviation>
+                        </DailyExRatesOnDate>
+                        <DailyExRatesOnDate
+                            diffgr:id="DailyExRatesOnDate7"
+                            msdata:rowOrder="6">
+                            <Cur_QuotName>1 злотый</Cur_QuotName>
+                            <Cur_Scale>1</Cur_Scale>
+                            <Cur_OfficialRate>5215.97</Cur_OfficialRate>
+                            <Cur_Code>985</Cur_Code>
+                            <Cur_Abbreviation>PLN</Cur_Abbreviation>
+                        </DailyExRatesOnDate>
+                        <DailyExRatesOnDate
+                            diffgr:id="DailyExRatesOnDate8"
+                            msdata:rowOrder="7">
+                            <Cur_QuotName>1 исландская крона
+                            </Cur_QuotName>
+                            <Cur_Scale>1</Cur_Scale>
+                            <Cur_OfficialRate>159.95</Cur_OfficialRate>
+                            <Cur_Code>352</Cur_Code>
+                            <Cur_Abbreviation>ISK</Cur_Abbreviation>
+                        </DailyExRatesOnDate>
+                        <DailyExRatesOnDate
+                            diffgr:id="DailyExRatesOnDate9"
+                            msdata:rowOrder="8">
+                            <Cur_QuotName>1 канадский доллар
+                            </Cur_QuotName>
+                            <Cur_Scale>1</Cur_Scale>
+                            <Cur_OfficialRate>15506.91
+                            </Cur_OfficialRate>
+                            <Cur_Code>124</Cur_Code>
+                            <Cur_Abbreviation>CAD</Cur_Abbreviation>
+                        </DailyExRatesOnDate>
+                        <DailyExRatesOnDate
+                            diffgr:id="DailyExRatesOnDate10"
+                            msdata:rowOrder="9">
+                            <Cur_QuotName>1 китайский юань
+                            </Cur_QuotName>
+                            <Cur_Scale>1</Cur_Scale>
+                            <Cur_OfficialRate>3072.42</Cur_OfficialRate>
+                            <Cur_Code>156</Cur_Code>
+                            <Cur_Abbreviation>CNY</Cur_Abbreviation>
+                        </DailyExRatesOnDate>
+                        <DailyExRatesOnDate
+                            diffgr:id="DailyExRatesOnDate11"
+                            msdata:rowOrder="10">
+                            <Cur_QuotName>1 кувейтский динар
+                            </Cur_QuotName>
+                            <Cur_Scale>1</Cur_Scale>
+                            <Cur_OfficialRate>65943.42
+                            </Cur_OfficialRate>
+                            <Cur_Code>414</Cur_Code>
+                            <Cur_Abbreviation>KWD</Cur_Abbreviation>
+                        </DailyExRatesOnDate>
+                        <DailyExRatesOnDate
+                            diffgr:id="DailyExRatesOnDate12"
+                            msdata:rowOrder="11">
+                            <Cur_QuotName>1 молдавский лей
+                            </Cur_QuotName>
+                            <Cur_Scale>1</Cur_Scale>
+                            <Cur_OfficialRate>1010.44</Cur_OfficialRate>
+                            <Cur_Code>498</Cur_Code>
+                            <Cur_Abbreviation>MDL</Cur_Abbreviation>
+                        </DailyExRatesOnDate>
+                        <DailyExRatesOnDate
+                            diffgr:id="DailyExRatesOnDate13"
+                            msdata:rowOrder="12">
+                            <Cur_QuotName>1 новозеландский доллар
+                            </Cur_QuotName>
+                            <Cur_Scale>1</Cur_Scale>
+                            <Cur_OfficialRate>13752.75
+                            </Cur_OfficialRate>
+                            <Cur_Code>554</Cur_Code>
+                            <Cur_Abbreviation>NZD</Cur_Abbreviation>
+                        </DailyExRatesOnDate>
+                        <DailyExRatesOnDate
+                            diffgr:id="DailyExRatesOnDate14"
+                            msdata:rowOrder="13">
+                            <Cur_QuotName>1 норвежская крона
+                            </Cur_QuotName>
+                            <Cur_Scale>1</Cur_Scale>
+                            <Cur_OfficialRate>2414.51</Cur_OfficialRate>
+                            <Cur_Code>578</Cur_Code>
+                            <Cur_Abbreviation>NOK</Cur_Abbreviation>
+                        </DailyExRatesOnDate>
+                        <DailyExRatesOnDate
+                            diffgr:id="DailyExRatesOnDate15"
+                            msdata:rowOrder="14">
+                            <Cur_QuotName>1 российский рубль
+                            </Cur_QuotName>
+                            <Cur_Scale>1</Cur_Scale>
+                            <Cur_OfficialRate>301.60</Cur_OfficialRate>
+                            <Cur_Code>643</Cur_Code>
+                            <Cur_Abbreviation>RUB</Cur_Abbreviation>
+                        </DailyExRatesOnDate>
+                        <DailyExRatesOnDate
+                            diffgr:id="DailyExRatesOnDate16"
+                            msdata:rowOrder="15">
+                            <Cur_QuotName>1 СДР (Специальные права
+                                заимствования)</Cur_QuotName>
+                            <Cur_Scale>1</Cur_Scale>
+                            <Cur_OfficialRate>27949.83
+                            </Cur_OfficialRate>
+                            <Cur_Code>960</Cur_Code>
+                            <Cur_Abbreviation>XDR</Cur_Abbreviation>
+                        </DailyExRatesOnDate>
+                        <DailyExRatesOnDate
+                            diffgr:id="DailyExRatesOnDate17"
+                            msdata:rowOrder="16">
+                            <Cur_QuotName>1 сингапурский доллар
+                            </Cur_QuotName>
+                            <Cur_Scale>1</Cur_Scale>
+                            <Cur_OfficialRate>14642.34
+                            </Cur_OfficialRate>
+                            <Cur_Code>702</Cur_Code>
+                            <Cur_Abbreviation>SGD</Cur_Abbreviation>
+                        </DailyExRatesOnDate>
+                        <DailyExRatesOnDate
+                            diffgr:id="DailyExRatesOnDate18"
+                            msdata:rowOrder="17">
+                            <Cur_QuotName>1 сом</Cur_QuotName>
+                            <Cur_Scale>1</Cur_Scale>
+                            <Cur_OfficialRate>284.50</Cur_OfficialRate>
+                            <Cur_Code>417</Cur_Code>
+                            <Cur_Abbreviation>KGS</Cur_Abbreviation>
+                        </DailyExRatesOnDate>
+                        <DailyExRatesOnDate
+                            diffgr:id="DailyExRatesOnDate19"
+                            msdata:rowOrder="18">
+                            <Cur_QuotName>1 тенге</Cur_QuotName>
+                            <Cur_Scale>1</Cur_Scale>
+                            <Cur_OfficialRate>59.58</Cur_OfficialRate>
+                            <Cur_Code>398</Cur_Code>
+                            <Cur_Abbreviation>KZT</Cur_Abbreviation>
+                        </DailyExRatesOnDate>
+                        <DailyExRatesOnDate
+                            diffgr:id="DailyExRatesOnDate20"
+                            msdata:rowOrder="19">
+                            <Cur_QuotName>1 турецкая лира</Cur_QuotName>
+                            <Cur_Scale>1</Cur_Scale>
+                            <Cur_OfficialRate>6958.91</Cur_OfficialRate>
+                            <Cur_Code>949</Cur_Code>
+                            <Cur_Abbreviation>TRY</Cur_Abbreviation>
+                        </DailyExRatesOnDate>
+                        <DailyExRatesOnDate
+                            diffgr:id="DailyExRatesOnDate21"
+                            msdata:rowOrder="20">
+                            <Cur_QuotName>1 фунт стерлингов
+                            </Cur_QuotName>
+                            <Cur_Scale>1</Cur_Scale>
+                            <Cur_OfficialRate>28205.23
+                            </Cur_OfficialRate>
+                            <Cur_Code>826</Cur_Code>
+                            <Cur_Abbreviation>GBP</Cur_Abbreviation>
+                        </DailyExRatesOnDate>
+                        <DailyExRatesOnDate
+                            diffgr:id="DailyExRatesOnDate22"
+                            msdata:rowOrder="21">
+                            <Cur_QuotName>1 чешская крона</Cur_QuotName>
+                            <Cur_Scale>1</Cur_Scale>
+                            <Cur_OfficialRate>829.47</Cur_OfficialRate>
+                            <Cur_Code>203</Cur_Code>
+                            <Cur_Abbreviation>CZK</Cur_Abbreviation>
+                        </DailyExRatesOnDate>
+                        <DailyExRatesOnDate
+                            diffgr:id="DailyExRatesOnDate23"
+                            msdata:rowOrder="22">
+                            <Cur_QuotName>1 шведская крона
+                            </Cur_QuotName>
+                            <Cur_Scale>1</Cur_Scale>
+                            <Cur_OfficialRate>2442.59</Cur_OfficialRate>
+                            <Cur_Code>752</Cur_Code>
+                            <Cur_Abbreviation>SEK</Cur_Abbreviation>
+                        </DailyExRatesOnDate>
+                        <DailyExRatesOnDate
+                            diffgr:id="DailyExRatesOnDate24"
+                            msdata:rowOrder="23">
+                            <Cur_QuotName>1 швейцарский франк
+                            </Cur_QuotName>
+                            <Cur_Scale>1</Cur_Scale>
+                            <Cur_OfficialRate>20569.33
+                            </Cur_OfficialRate>
+                            <Cur_Code>756</Cur_Code>
+                            <Cur_Abbreviation>CHF</Cur_Abbreviation>
+                        </DailyExRatesOnDate>
+                        <DailyExRatesOnDate
+                            diffgr:id="DailyExRatesOnDate25"
+                            msdata:rowOrder="24">
+                            <Cur_QuotName>10 йен</Cur_QuotName>
+                            <Cur_Scale>10</Cur_Scale>
+                            <Cur_OfficialRate>1822.07</Cur_OfficialRate>
+                            <Cur_Code>392</Cur_Code>
+                            <Cur_Abbreviation>JPY</Cur_Abbreviation>
+                        </DailyExRatesOnDate>
+                        <DailyExRatesOnDate
+                            diffgr:id="DailyExRatesOnDate26"
+                            msdata:rowOrder="25">
+                            <Cur_QuotName>1000 иранских риалов
+                            </Cur_QuotName>
+                            <Cur_Scale>1000</Cur_Scale>
+                            <Cur_OfficialRate>658.04</Cur_OfficialRate>
+                            <Cur_Code>364</Cur_Code>
+                            <Cur_Abbreviation>IRR</Cur_Abbreviation>
+                        </DailyExRatesOnDate>
+                    </NewDataSet>
+                </diffgr:diffgram>
+            </ExRatesDailyResult>
+        </ExRatesDailyResponse>
+    </soap:Body>
+</soap:Envelope>
