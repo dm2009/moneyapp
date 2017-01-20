@@ -4,6 +4,7 @@ version "1.0-SNAPSHOT"
 apply plugin: "java"
 apply plugin: "war"
 apply plugin: "com.bmuschko.tomcat"
+apply plugin: "checkstyle"
 
 repositories {
     mavenCentral()
@@ -61,5 +62,26 @@ buildscript {
     }
     dependencies {
         classpath "com.bmuschko:gradle-tomcat-plugin:2.2.5"
+    }
+
+
+}
+
+checkstyle {
+    configFile = rootProject.file("tools/checkstyle/sun_checks.xml")
+    ignoreFailures = true
+    showViolations = false
+}
+
+checkstyleTest {
+    enabled = false
+}
+
+
+tasks.withType(Checkstyle) {
+    reports {
+        xml.enabled false
+        html.enabled true
+        html.destination rootProject.file("build/reports/checkstyle.html")
     }
 }
