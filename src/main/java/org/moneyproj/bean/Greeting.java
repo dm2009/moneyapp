@@ -1,4 +1,4 @@
-package org.moneyapp.bean;
+package org.moneyproj.bean;
 public class Greeting {
 
 
