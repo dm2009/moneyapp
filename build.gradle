@@ -5,6 +5,8 @@ apply plugin: "java"
 apply plugin: "war"
 apply plugin: "com.bmuschko.tomcat"
 apply plugin: "checkstyle"
+apply plugin: "findbugs"
+apply plugin: "pmd"
 
 repositories {
     mavenCentral()
@@ -63,11 +65,10 @@ buildscript {
     dependencies {
         classpath "com.bmuschko:gradle-tomcat-plugin:2.2.5"
     }
-
-
 }
 
-checkstyle {
+checkstyle  {
+
     configFile = rootProject.file("tools/checkstyle/sun_checks.xml")
     ignoreFailures = true
     showViolations = false
@@ -77,11 +78,75 @@ checkstyleTest {
     enabled = false
 }
 
-
 tasks.withType(Checkstyle) {
     reports {
         xml.enabled false
         html.enabled true
-        html.destination rootProject.file("build/reports/checkstyle.html")
+        html.destination rootProject.file("build/reports/checkstyle/checkstyle_report.html")
     }
 }
+
+
+task customFindbugs(type: FindBugs){
+            source = fileTree('src/main/java/')
+            classpath = files()
+            ignoreFailures = true
+            effort = "max"
+            reportLevel = "high"
+        }
+
+
+findbugs {
+    sourceSets = [sourceSets.main]
+    ignoreFailures = true
+    effort = "max"
+    reportLevel = "high"
+    //visitors = ["FindSqlInjection", "SwitchFallthrough"]
+}
+
+tasks.withType(FindBugs) {
+    reports {
+        xml.enabled = false
+        html.enabled = true
+        html.destination rootProject.file("build/reports/findbugs/findbugs_report.html")
+    }
+}
+
+pmd {
+    ignoreFailures = true
+    consoleOutput = false
+    ruleSets = ["java-basic", "java-strings", "java-braces"]
+    reportsDir = file("${rootProject.rootDir}/build/reports/pmd")
+
+}
+
+// add CPD to check
+check << {
+    File outDir = new File('build/reports/pmdcpd/')
+    outDir.mkdirs()
+    ant.taskdef(name: 'cpd', classname: 'net.sourceforge.pmd.cpd.CPDTask',
+            classpath: configurations.pmd.asPath)
+
+    ant.cpd(minimumTokenCount: "100", format: 'xml',
+            outputFile: new File(outDir , 'cpd.xml')) {
+        fileset(dir: "src/main/java") {
+            include(name: '**/*.java')
+        }
+    }
+    //<xslt in="${report.pmd.dir}/cpd_report.xml" style="${pmd.home.dir}/etc/xslt/cpdhtml.xslt" out="${report.pmd.dir}/cpd_report.html" />
+    ant.xslt(in: file("${outDir}/cpd.xml"), style: rootProject.file("tools/pmd/cpdhtml.xslt"), out: "${outDir}/cpd_report.html")
+}
+
+
+task copyTask (type: Copy ){
+    from 'html'
+    into 'build/reports'
+    include '**/*.htm'
+}
+
+check.dependsOn copyTask
+
+
+
+
+
