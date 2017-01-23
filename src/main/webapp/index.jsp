@@ -11,15 +11,8 @@
 <ui:html>
    <ui:menu> </ui:menu>
     
-        <h1>Rest started!</h1>
-        <h4> <a href="rest/coins">List of elements xml</a> </h4>
-        <!-- h4> <a href="rest/json/coins">List of elements json</a> </h4>
-        <h4> <a href="rest/csv/coins">List of elements csv</a> </h4 -->
+        <h1>Hello world!</h1>
 
-        <h4> <a href="create_coin.jsp">Insert new element </a> </h4>
-        <h4> <a href="update_coin.jsp">Update element </a> </h4>
-        <h4> <a href="coin/list">MVC Coin List</a> </h4>
-        
         <ui:footer key=""></ui:footer>
 
 </ui:html>

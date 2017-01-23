@@ -14,6 +14,7 @@ public class CoinDaoImpl extends DaoSupport implements CoinDao {
 
     private final RowMapper<Coin> mapper = new CoinRowMapper();
 
+<<<<<<< HEAD
 
     @Override
     public final void create(final Coin coin) {

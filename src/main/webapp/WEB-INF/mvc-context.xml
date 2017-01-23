@@ -14,17 +14,6 @@
 
     <context:annotation-config />
 
-    <!-- Config Properties file -->
-    <!-- 
-    <bean id="appMsg" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
-        <property name="locations">
-            <list>
-                <value>classpath:messages.properties</value>
-            </list>
-        </property>
-    </bean>
-     -->
-
     <!-- Default Servlet Handler (For Resources *.css, *.js, image,..) -->
     <mvc:default-servlet-handler />
     <mvc:annotation-driven />
@@ -35,12 +24,7 @@
         <property name="viewClass" value="org.springframework.web.servlet.view.JstlView" />
         <property name="prefix" value="/WEB-INF/jsp/view/" />
         <property name="suffix" value=".jsp" />
-        <!-- property name="exposedContextBeanNames">
-            <list>
-                <value>appMsg</value>
-            </list>
-        </property -->
-    </bean>
+     </bean>
 
     <!-- Message resources -->
     <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
@@ -51,9 +35,6 @@
         </property>
     </bean>
 
-    <!--  bean id="validator"
-        class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean" / -->
-        
         <bean id="coinValidator" class="org.moneyproj.validator.CoinValidator" />
 
 </beans>

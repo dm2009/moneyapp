@@ -8,14 +8,11 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
-import org.moneyproj.rest.helpers.DateFormatterAdapter;
 /**
  *
  * @author Dmitriy S.
  *
  */
-@XmlRootElement
-@XmlAccessorType(XmlAccessType.FIELD)
 public class Coin extends Entity {
 
     /**
@@ -51,7 +48,6 @@ public class Coin extends Entity {
     /**
      * The Date for rate of currency.
      */
-    @XmlJavaTypeAdapter(DateFormatterAdapter.class)
     private Date date;
 
     /**

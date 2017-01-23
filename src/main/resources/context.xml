@@ -14,9 +14,7 @@
            http://www.springframework.org/schema/task 
            http://www.springframework.org/schema/task/spring-task-4.0.xsd">
 
-    <!-- Datasource configuration -->
-
-      <bean
+    <bean
         class="org.springframework.context.support.PropertySourcesPlaceholderConfigurer">
         <property name="locations">
             <list>
@@ -64,35 +62,5 @@
         <property name="coinDao" ref="coinDao" />
         <property name="coinTypeDao" ref="coinTypeDao" />
     </bean>
-
-    <bean id="coinResource" class="org.moneyproj.rest.CoinResource">
-        <property name="coinDao" ref="coinDao" />
-    </bean>
-
-
-    <!-- Soap configuration -->
-
-    <bean id="soapClientNBRB" class="org.moneyproj.soap.SoapClientNBRBImpl">
-    </bean>
-
-
-    <!-- Timer task -->
-
-    <bean id="springTask" class="org.moneyproj.task.SpringTask">
-        <property name="soapService" ref="soapClientNBRB" />
-        <property name="coinService" ref="coinService" />
-        <property name="dateFormatString" value="${common.date.format}" />
-    </bean>
-
-    <context:component-scan base-package="org.moneyproj.task" />
-
-    <task:scheduled-tasks scheduler="myScheduler">
-        <task:scheduled ref="springTask" method="execute"
-            fixed-rate="600000" />
-    </task:scheduled-tasks>
-
-    <task:scheduler id="myScheduler" />
-
-    <!-- bean class="org.moneyproj.rest.helpers.DateFormatterAdapter"/-->
 
 </beans>
