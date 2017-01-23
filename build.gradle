@@ -88,7 +88,6 @@ findbugs {
     ignoreFailures = true
     effort = "max"
     reportLevel = "high"
-    //visitors = ["FindSqlInjection", "SwitchFallthrough"]
 }
 
 tasks.withType(FindBugs) {
