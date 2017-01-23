@@ -1,6 +1,3 @@
-group "gradlemini"
-version "1.0-SNAPSHOT"
-
 apply plugin: "java"
 apply plugin: "war"
 apply plugin: "com.bmuschko.tomcat"
@@ -67,7 +64,7 @@ buildscript {
     }
 }
 
-checkstyle  {
+checkstyle {
 
     configFile = rootProject.file("tools/checkstyle/sun_checks.xml")
     ignoreFailures = true
@@ -85,16 +82,6 @@ tasks.withType(Checkstyle) {
         html.destination rootProject.file("build/reports/checkstyle/checkstyle_report.html")
     }
 }
-
-
-task customFindbugs(type: FindBugs){
-            source = fileTree('src/main/java/')
-            classpath = files()
-            ignoreFailures = true
-            effort = "max"
-            reportLevel = "high"
-        }
-
 
 findbugs {
     sourceSets = [sourceSets.main]
@@ -120,7 +107,6 @@ pmd {
 
 }
 
-// add CPD to check
 check << {
     File outDir = new File('build/reports/pmdcpd/')
     outDir.mkdirs()
@@ -128,25 +114,18 @@ check << {
             classpath: configurations.pmd.asPath)
 
     ant.cpd(minimumTokenCount: "100", format: 'xml',
-            outputFile: new File(outDir , 'cpd.xml')) {
+            outputFile: new File(outDir, 'cpd.xml')) {
         fileset(dir: "src/main/java") {
             include(name: '**/*.java')
         }
     }
-    //<xslt in="${report.pmd.dir}/cpd_report.xml" style="${pmd.home.dir}/etc/xslt/cpdhtml.xslt" out="${report.pmd.dir}/cpd_report.html" />
     ant.xslt(in: file("${outDir}/cpd.xml"), style: rootProject.file("tools/pmd/cpdhtml.xslt"), out: "${outDir}/cpd_report.html")
 }
 
-
-task copyTask (type: Copy ){
+task copyTask(type: Copy) {
     from 'html'
     into 'build/reports'
     include '**/*.htm'
 }
 
 check.dependsOn copyTask
-
-
-
-
-
