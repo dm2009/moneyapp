@@ -1,5 +1,6 @@
+import org.apache.tools.ant.filters.ReplaceTokens
+
 apply plugin: "java"
-apply plugin: "war"
 apply plugin: "com.bmuschko.tomcat"
 apply plugin: "checkstyle"
 apply plugin: "findbugs"
@@ -27,25 +28,21 @@ ext {
 dependencies {
     providedCompile "javax.servlet:javax.servlet-api:$javaxServlet"
     providedCompile "javax.servlet.jsp:jsp-api:$javaxServletJsp"
-    compile group: "org.slf4j", name: "slf4j-log4j12", version: "$slf4jVersion"
+    compile "org.slf4j:slf4j-log4j12:$slf4jVersion"
 
-    compile group: "commons-configuration", name: "commons-configuration", version: "$commonsConfigurationVersion"
+    compile "commons-configuration:commons-configuration:$commonsConfigurationVersion"
 
-    compile group: "commons-dbcp", name: "commons-dbcp", version: "$commonsDbcpVersion"
+    compile "commons-dbcp:commons-dbcp:$commonsDbcpVersion"
 
-    compile group: "org.postgresql", name: "postgresql", version: "$postgresqlVersion"
+    compile "org.postgresql:postgresql:$postgresqlVersion"
 
-    compile group: "org.springframework", name: "spring-core", version: "$springVersion"
-    compile group: "org.springframework", name: "spring-webmvc", version: "$springVersion"
-    compile group: "org.springframework", name: "spring-jdbc", version: "$springVersion"
+    compile "org.springframework:spring-core:$springVersion"
+    compile "org.springframework:spring-webmvc:$springVersion"
+    compile "org.springframework:spring-jdbc:$springVersion"
 
-    compile group: "javax.validation", name: "validation-api", version: "$validationVersion"
+    compile "javax.validation:validation-api:$validationVersion"
 
-    runtime("javax.servlet:jstl:$jstlVersion")
-
-}
-
-dependencies {
+    runtime "javax.servlet:jstl:$jstlVersion"
 
     tomcat "org.apache.tomcat.embed:tomcat-embed-core:$tomcatVersion",
             "org.apache.tomcat.embed:tomcat-embed-logging-juli:$tomcatVersion",
@@ -68,7 +65,7 @@ checkstyle {
 
     configFile = rootProject.file("tools/checkstyle/sun_checks.xml")
     ignoreFailures = true
-    showViolations = false
+    showViolations = true
 }
 
 checkstyleTest {
@@ -100,7 +97,7 @@ tasks.withType(FindBugs) {
 
 pmd {
     ignoreFailures = true
-    consoleOutput = false
+    consoleOutput = true
     ruleSets = ["java-basic", "java-strings", "java-braces"]
     reportsDir = file("${rootProject.rootDir}/build/reports/pmd")
 
@@ -128,3 +125,26 @@ task copyTask(type: Copy) {
 }
 
 check.dependsOn copyTask
+
+
+def String webXmlPath = 'build/forWar'
+def String webXmlFile = 'web.xml'
+def String webInf = 'src/main/webapp/WEB-INF'
+
+task xmlDelete(type: Delete) {
+    delete webXmlPath +'/'+ webXmlFile
+}
+
+task xmlFilter(type: Copy) {
+    from webInf
+    into webXmlPath
+    include webXmlFile
+    filter(ReplaceTokens, tokens: ['testBuild':  'false'])
+}
+
+war {
+    rootSpec.exclude('WEB-INF/' + webXmlFile)
+    webXml = file(webXmlPath+'/' + webXmlFile)
+}
+
+war.dependsOn xmlDelete,xmlFilter
