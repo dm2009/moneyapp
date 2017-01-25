@@ -128,23 +128,62 @@ check.dependsOn copyTask
 
 
 def String webXmlPath = 'build/forWar'
+def String webXmlTomcatPath = 'build/forTomcat'
 def String webXmlFile = 'web.xml'
 def String webInf = 'src/main/webapp/WEB-INF'
+def String replaceParam = "@testBuild@"
+
 
 task xmlDelete(type: Delete) {
-    delete webXmlPath +'/'+ webXmlFile
+    delete webXmlPath + '/' + webXmlFile
 }
 
 task xmlFilter(type: Copy) {
+    dependsOn xmlDelete
     from webInf
     into webXmlPath
     include webXmlFile
     filter(ReplaceTokens, tokens: ['testBuild':  'false'])
+    /*
+    //Alternative way
+    filter { String line ->
+        line.replaceAll(replaceParam, "false")
+    }
+    */
 }
 
 war {
+    dependsOn xmlFilter
     rootSpec.exclude('WEB-INF/' + webXmlFile)
-    webXml = file(webXmlPath+'/' + webXmlFile)
+    webXml = file(webXmlPath + '/' + webXmlFile)
 }
 
-war.dependsOn xmlDelete,xmlFilter
+task tomcatXmlDelete(type: Delete) {
+    delete webXmlTomcatPath + '/' + webXmlFile
+}
+
+task tomcatFilter(type: Copy) {
+    dependsOn tomcatXmlDelete
+    from webInf
+    into webXmlTomcatPath
+    include webXmlFile
+    filter(ReplaceTokens, tokens: ['testBuild':  'true'])
+    /*
+    //Alternative way
+    filter { String line ->
+        line.replaceAll(replaceParam, "true")
+    }
+    */
+}
+
+task tomcatCreateWar(type: War) {
+    dependsOn tomcatFilter
+    baseName = "tomcat"
+    rootSpec.exclude('WEB-INF/' + webXmlFile)
+    webXml = file(webXmlTomcatPath + '/' + webXmlFile)
+}
+
+tomcatRunWar {
+    dependsOn tomcatCreateWar
+    webApp = file("build/libs/tomcat.war")
+}
