@@ -29,6 +29,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+
+
 @Controller
 public class CoinsController {
 
@@ -134,4 +136,14 @@ public class CoinsController {
         binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, false));
         binder.addValidators(coinValidator);
     }
+
+public void initBinder2(WebDataBinder binder) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat(
+                message.getMessage("common.date.format", null, Locale.getDefault()), Locale.getDefault());
+        dateFormat.setLenient(false);
+        binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, false));
+        binder.addValidators(coinValidator);
+    }
+
+
 }

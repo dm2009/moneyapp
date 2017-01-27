@@ -58,9 +58,4 @@
     <bean id="coinTypeDao" class="org.moneyproj.dao.jdbc.CoinTypeDaoImpl"
         parent="dao" />
 
-    <bean id="coinService" class="org.moneyproj.service.CoinServiceImpl">
-        <property name="coinDao" ref="coinDao" />
-        <property name="coinTypeDao" ref="coinTypeDao" />
-    </bean>
-
 </beans>

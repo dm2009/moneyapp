@@ -41,7 +41,5 @@ public interface CoinService {
 
     boolean isDoubleExist(Coin coin);
 
-
-
-
 }
+

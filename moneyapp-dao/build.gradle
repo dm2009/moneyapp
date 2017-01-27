@@ -1,0 +1,8 @@
+project.dependencies {
+    compile project(':moneyapp-dto')
+    compile "commons-configuration:commons-configuration:${commonsConfigurationVersion}"
+    compile "commons-dbcp:commons-dbcp:${commonsDbcpVersion}"
+    compile "org.postgresql:postgresql:${postgresqlVersion}"
+    compile "org.springframework:spring-core:${springVersion}"
+    compile "org.springframework:spring-jdbc:${springVersion}"
+}

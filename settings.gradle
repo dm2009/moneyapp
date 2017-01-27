@@ -1,3 +1,6 @@
 rootProject.name = 'moneyapp'
 
-
+include 'moneyapp-dto'
+include 'moneyapp-dao'
+include 'moneyapp-service'
+include 'moneyapp-ui'
