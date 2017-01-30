@@ -64,6 +64,10 @@ subprojects {
 
     check.dependsOn copyTask
 
+    task wrapper(type: Wrapper) {
+        gradleVersion = '3.3' 
+    }
+
 }
 
 
